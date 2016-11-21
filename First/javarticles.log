@@ -1,0 +1,382 @@
+2016-11-15 23:59:59,182 | INFO | DefaultCamelContext.java 2800 | Apache Camel 2.17.3 (CamelContext: camel-1) is starting
+2016-11-15 23:59:59,186 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2016-11-15 23:59:59,539 | INFO | DefaultTypeConverter.java 56 | Loaded 185 type converters
+2016-11-15 23:59:59,593 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2016-11-15 23:59:59,816 | INFO | DefaultCamelContext.java 3039 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2016-11-15 23:59:59,849 | INFO | DefaultStreamCachingStrategy.java 314 | StreamCaching in use with spool directory: /tmp/camel/camel-tmp-3dd64398-c7a2-4d74-8edb-e2e7f6fdb9d5 and rules: [Spool > 128K body size]
+2016-11-15 23:59:59,944 | INFO | DefaultCamelContext.java 3570 | Route: route1 started and consuming from: Endpoint[direct://start]
+2016-11-15 23:59:59,944 | INFO | DefaultCamelContext.java 2840 | Total 1 routes, of which 1 are started.
+2016-11-15 23:59:59,946 | INFO | DefaultCamelContext.java 2841 | Apache Camel 2.17.3 (CamelContext: camel-1) started in 0.767 seconds
+2016-11-15 23:59:59,996 | INFO | CamelLogger.java 159 | refeived = A
+2016-11-16 00:00:01,089 | INFO | DefaultCamelContext.java 3066 | Apache Camel 2.17.3 (CamelContext: camel-1) is shutting down
+2016-11-16 00:00:01,090 | INFO | DefaultShutdownStrategy.java 196 | Starting to graceful shutdown 1 routes (timeout 300 seconds)
+2016-11-16 00:00:01,094 | INFO | DefaultShutdownStrategy.java 669 | Route: route1 shutdown complete, was consuming from: Endpoint[direct://start]
+2016-11-16 00:00:01,094 | INFO | DefaultShutdownStrategy.java 260 | Graceful shutdown of 1 routes completed in 0 seconds
+2016-11-16 00:00:01,105 | INFO | DefaultCamelContext.java 3151 | Apache Camel 2.17.3 (CamelContext: camel-1) uptime 1.928 seconds
+2016-11-16 00:00:01,106 | INFO | DefaultCamelContext.java 3152 | Apache Camel 2.17.3 (CamelContext: camel-1) is shutdown in 0.016 seconds
+2016-11-16 00:01:27,442 | INFO | DefaultCamelContext.java 2800 | Apache Camel 2.17.3 (CamelContext: camel-1) is starting
+2016-11-16 00:01:27,448 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2016-11-16 00:01:27,800 | INFO | DefaultTypeConverter.java 56 | Loaded 185 type converters
+2016-11-16 00:01:27,841 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2016-11-16 00:01:28,144 | INFO | DefaultCamelContext.java 3039 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2016-11-16 00:01:28,204 | INFO | DefaultStreamCachingStrategy.java 314 | StreamCaching in use with spool directory: /tmp/camel/camel-tmp-5e676f95-c74a-4193-b88f-f1a566668bf0 and rules: [Spool > 128K body size]
+2016-11-16 00:01:28,321 | INFO | DefaultCamelContext.java 3570 | Route: route1 started and consuming from: Endpoint[direct://start]
+2016-11-16 00:01:28,322 | INFO | DefaultCamelContext.java 2840 | Total 1 routes, of which 1 are started.
+2016-11-16 00:01:28,324 | INFO | DefaultCamelContext.java 2841 | Apache Camel 2.17.3 (CamelContext: camel-1) started in 0.883 seconds
+2016-11-16 00:01:28,348 | INFO | CamelLogger.java 159 | refeived = A
+2016-11-16 00:01:28,442 | ERROR | CamelLogger.java 204 | Failed delivery for (MessageId: ID-DVLTN-RAJKUMAR-41477-1479234687185-0-1 on ExchangeId: ID-DVLTN-RAJKUMAR-41477-1479234687185-0-2). Exhausted after delivery attempt: 1 caught: org.apache.camel.TypeConversionException: Error during type conversion from type: java.lang.String to the required type: java.lang.Integer with value 1 < 5 due java.lang.NumberFormatException: For input string: "1 < 5"
+
+Message History
+---------------------------------------------------------------------------------------------------------------------------------------
+RouteId              ProcessorId          Processor                                                                        Elapsed (ms)
+[route1            ] [route1            ] [direct://start                                                                ] [       102]
+[route1            ] [process1          ] [Processor@0x38102d01                                                          ] [         4]
+[route1            ] [log1              ] [log                                                                           ] [         1]
+[route1            ] [loop1             ] [loop[simple{Simple: ${body.length} < 5}]                                      ] [        89]
+
+Stacktrace
+---------------------------------------------------------------------------------------------------------------------------------------
+org.apache.camel.TypeConversionException: Error during type conversion from type: java.lang.String to the required type: java.lang.Integer with value 1 < 5 due java.lang.NumberFormatException: For input string: "1 < 5"
+	at org.apache.camel.impl.converter.BaseTypeConverterRegistry.createTypeConversionException(BaseTypeConverterRegistry.java:629)
+	at org.apache.camel.impl.converter.BaseTypeConverterRegistry.mandatoryConvertTo(BaseTypeConverterRegistry.java:190)
+	at org.apache.camel.util.ExchangeHelper.convertToMandatoryType(ExchangeHelper.java:187)
+	at org.apache.camel.processor.LoopProcessor.process(LoopProcessor.java:65)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:468)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:109)
+	at org.apache.camel.processor.UnitOfWorkProducer.process(UnitOfWorkProducer.java:68)
+	at org.apache.camel.impl.ProducerCache$2.doInProducer(ProducerCache.java:412)
+	at org.apache.camel.impl.ProducerCache$2.doInProducer(ProducerCache.java:380)
+	at org.apache.camel.impl.ProducerCache.doInProducer(ProducerCache.java:270)
+	at org.apache.camel.impl.ProducerCache.sendExchange(ProducerCache.java:380)
+	at org.apache.camel.impl.ProducerCache.send(ProducerCache.java:238)
+	at org.apache.camel.impl.DefaultProducerTemplate.send(DefaultProducerTemplate.java:128)
+	at org.apache.camel.impl.DefaultProducerTemplate.sendBody(DefaultProducerTemplate.java:132)
+	at org.apache.camel.impl.DefaultProducerTemplate.sendBody(DefaultProducerTemplate.java:149)
+	at org.apache.camel.impl.DefaultProducerTemplate.requestBody(DefaultProducerTemplate.java:301)
+	at App.main(App.java:47)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+Caused by: org.apache.camel.RuntimeCamelException: java.lang.NumberFormatException: For input string: "1 < 5"
+	at org.apache.camel.util.ObjectHelper.wrapRuntimeCamelException(ObjectHelper.java:1690)
+	at org.apache.camel.util.ObjectHelper.invokeMethod(ObjectHelper.java:1285)
+	at org.apache.camel.impl.converter.StaticMethodTypeConverter.convertTo(StaticMethodTypeConverter.java:59)
+	at org.apache.camel.impl.converter.BaseTypeConverterRegistry.doConvertTo(BaseTypeConverterRegistry.java:306)
+	at org.apache.camel.impl.converter.BaseTypeConverterRegistry.mandatoryConvertTo(BaseTypeConverterRegistry.java:181)
+	... 27 more
+Caused by: java.lang.NumberFormatException: For input string: "1 < 5"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.valueOf(Integer.java:766)
+	at org.apache.camel.converter.ObjectConverter.toInteger(ObjectConverter.java:262)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.camel.util.ObjectHelper.invokeMethod(ObjectHelper.java:1281)
+	... 30 more
+2016-11-16 00:02:12,132 | INFO | DefaultCamelContext.java 2800 | Apache Camel 2.17.3 (CamelContext: camel-1) is starting
+2016-11-16 00:02:12,143 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2016-11-16 00:02:12,566 | INFO | DefaultTypeConverter.java 56 | Loaded 185 type converters
+2016-11-16 00:02:12,633 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2016-11-16 00:02:12,868 | INFO | DefaultCamelContext.java 3039 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2016-11-16 00:02:12,914 | INFO | DefaultStreamCachingStrategy.java 314 | StreamCaching in use with spool directory: /tmp/camel/camel-tmp-23a39904-49e8-4142-b825-58f1524e128c and rules: [Spool > 128K body size]
+2016-11-16 00:02:13,028 | INFO | DefaultCamelContext.java 3570 | Route: route1 started and consuming from: Endpoint[direct://start]
+2016-11-16 00:02:13,028 | INFO | DefaultCamelContext.java 2840 | Total 1 routes, of which 1 are started.
+2016-11-16 00:02:13,030 | INFO | DefaultCamelContext.java 2841 | Apache Camel 2.17.3 (CamelContext: camel-1) started in 0.904 seconds
+2016-11-16 00:02:13,068 | INFO | CamelLogger.java 159 | refeived = A
+2016-11-16 00:02:14,085 | INFO | DefaultCamelContext.java 3066 | Apache Camel 2.17.3 (CamelContext: camel-1) is shutting down
+2016-11-16 00:02:14,086 | INFO | DefaultShutdownStrategy.java 196 | Starting to graceful shutdown 1 routes (timeout 300 seconds)
+2016-11-16 00:02:14,090 | INFO | DefaultShutdownStrategy.java 669 | Route: route1 shutdown complete, was consuming from: Endpoint[direct://start]
+2016-11-16 00:02:14,091 | INFO | DefaultShutdownStrategy.java 260 | Graceful shutdown of 1 routes completed in 0 seconds
+2016-11-16 00:02:14,095 | INFO | DefaultCamelContext.java 3151 | Apache Camel 2.17.3 (CamelContext: camel-1) uptime 1.971 seconds
+2016-11-16 00:02:14,095 | INFO | DefaultCamelContext.java 3152 | Apache Camel 2.17.3 (CamelContext: camel-1) is shutdown in 0.010 seconds
+2016-11-16 00:25:38,890 | INFO | DefaultCamelContext.java 2800 | Apache Camel 2.17.3 (CamelContext: camel-1) is starting
+2016-11-16 00:25:38,918 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2016-11-16 00:25:39,356 | INFO | DefaultTypeConverter.java 56 | Loaded 185 type converters
+2016-11-16 00:25:39,415 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2016-11-16 00:25:39,644 | INFO | DefaultCamelContext.java 3039 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2016-11-16 00:25:39,675 | INFO | DefaultStreamCachingStrategy.java 314 | StreamCaching in use with spool directory: /tmp/camel/camel-tmp-17eb69e6-2502-420c-813e-ff1ad431a2ec and rules: [Spool > 128K body size]
+2016-11-16 00:25:39,806 | INFO | DefaultCamelContext.java 3570 | Route: route1 started and consuming from: Endpoint[direct://start]
+2016-11-16 00:25:39,807 | INFO | DefaultCamelContext.java 2840 | Total 1 routes, of which 1 are started.
+2016-11-16 00:25:39,808 | INFO | DefaultCamelContext.java 2841 | Apache Camel 2.17.3 (CamelContext: camel-1) started in 0.922 seconds
+2016-11-16 00:25:39,837 | INFO | CamelLogger.java 159 | refeived = A
+2016-11-16 00:25:40,847 | INFO | DefaultCamelContext.java 3066 | Apache Camel 2.17.3 (CamelContext: camel-1) is shutting down
+2016-11-16 00:25:40,849 | INFO | DefaultShutdownStrategy.java 196 | Starting to graceful shutdown 1 routes (timeout 300 seconds)
+2016-11-16 00:25:40,863 | INFO | DefaultShutdownStrategy.java 669 | Route: route1 shutdown complete, was consuming from: Endpoint[direct://start]
+2016-11-16 00:25:40,864 | INFO | DefaultShutdownStrategy.java 260 | Graceful shutdown of 1 routes completed in 0 seconds
+2016-11-16 00:25:40,875 | INFO | DefaultCamelContext.java 3151 | Apache Camel 2.17.3 (CamelContext: camel-1) uptime 1.990 seconds
+2016-11-16 00:25:40,876 | INFO | DefaultCamelContext.java 3152 | Apache Camel 2.17.3 (CamelContext: camel-1) is shutdown in 0.028 seconds
+2016-11-16 00:26:43,456 | INFO | DefaultCamelContext.java 2800 | Apache Camel 2.17.3 (CamelContext: camel-1) is starting
+2016-11-16 00:26:43,462 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2016-11-16 00:26:43,898 | INFO | DefaultTypeConverter.java 56 | Loaded 185 type converters
+2016-11-16 00:26:43,936 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2016-11-16 00:26:44,336 | INFO | DefaultCamelContext.java 3039 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2016-11-16 00:26:44,385 | INFO | DefaultStreamCachingStrategy.java 314 | StreamCaching in use with spool directory: /tmp/camel/camel-tmp-ebad86ca-0dc9-4cde-9c5d-90c67bbb157c and rules: [Spool > 128K body size]
+2016-11-16 00:26:44,525 | INFO | DefaultCamelContext.java 3570 | Route: route1 started and consuming from: Endpoint[direct://start]
+2016-11-16 00:26:44,527 | INFO | DefaultCamelContext.java 3570 | Route: route2 started and consuming from: Endpoint[direct://firstEnd]
+2016-11-16 00:26:44,531 | INFO | DefaultCamelContext.java 2840 | Total 2 routes, of which 2 are started.
+2016-11-16 00:26:44,534 | INFO | DefaultCamelContext.java 2841 | Apache Camel 2.17.3 (CamelContext: camel-1) started in 1.080 seconds
+2016-11-16 00:26:44,569 | INFO | CamelLogger.java 159 | refeived = A
+2016-11-16 00:26:44,628 | INFO | CamelLogger.java 159 | AAAAAAA
+2016-11-16 00:26:45,719 | INFO | DefaultCamelContext.java 3066 | Apache Camel 2.17.3 (CamelContext: camel-1) is shutting down
+2016-11-16 00:26:45,720 | INFO | DefaultShutdownStrategy.java 196 | Starting to graceful shutdown 2 routes (timeout 300 seconds)
+2016-11-16 00:26:45,726 | INFO | DefaultShutdownStrategy.java 669 | Route: route2 shutdown complete, was consuming from: Endpoint[direct://firstEnd]
+2016-11-16 00:26:45,726 | INFO | DefaultShutdownStrategy.java 669 | Route: route1 shutdown complete, was consuming from: Endpoint[direct://start]
+2016-11-16 00:26:45,728 | INFO | DefaultShutdownStrategy.java 260 | Graceful shutdown of 2 routes completed in 0 seconds
+2016-11-16 00:26:45,735 | INFO | DefaultCamelContext.java 3151 | Apache Camel 2.17.3 (CamelContext: camel-1) uptime 2.283 seconds
+2016-11-16 00:26:45,735 | INFO | DefaultCamelContext.java 3152 | Apache Camel 2.17.3 (CamelContext: camel-1) is shutdown in 0.015 seconds
+2016-11-16 00:27:21,506 | INFO | DefaultCamelContext.java 2800 | Apache Camel 2.17.3 (CamelContext: camel-1) is starting
+2016-11-16 00:27:21,513 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2016-11-16 00:27:21,836 | INFO | DefaultTypeConverter.java 56 | Loaded 185 type converters
+2016-11-16 00:27:21,884 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2016-11-16 00:27:22,258 | INFO | DefaultCamelContext.java 3039 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2016-11-16 00:27:22,279 | INFO | DefaultStreamCachingStrategy.java 314 | StreamCaching in use with spool directory: /tmp/camel/camel-tmp-9dde0cac-0f28-4927-b2db-29bd57b2482b and rules: [Spool > 128K body size]
+2016-11-16 00:27:22,374 | INFO | DefaultCamelContext.java 3570 | Route: route1 started and consuming from: Endpoint[direct://start]
+2016-11-16 00:27:22,377 | INFO | DefaultCamelContext.java 3570 | Route: route2 started and consuming from: Endpoint[direct://firstEnd]
+2016-11-16 00:27:22,378 | INFO | DefaultCamelContext.java 2840 | Total 2 routes, of which 2 are started.
+2016-11-16 00:27:22,379 | INFO | DefaultCamelContext.java 2841 | Apache Camel 2.17.3 (CamelContext: camel-1) started in 0.876 seconds
+2016-11-16 00:27:22,402 | INFO | CamelLogger.java 159 | refeived = A
+2016-11-16 00:27:22,434 | INFO | CamelLogger.java 159 | A
+2016-11-16 00:27:22,489 | INFO | CamelLogger.java 159 | A
+2016-11-16 00:27:22,567 | INFO | CamelLogger.java 159 | A
+2016-11-16 00:27:22,623 | INFO | CamelLogger.java 159 | A
+2016-11-16 00:27:22,679 | INFO | CamelLogger.java 159 | A
+2016-11-16 00:27:22,723 | INFO | CamelLogger.java 159 | A
+2016-11-16 00:27:22,768 | INFO | CamelLogger.java 159 | A
+2016-11-16 00:27:23,814 | INFO | DefaultCamelContext.java 3066 | Apache Camel 2.17.3 (CamelContext: camel-1) is shutting down
+2016-11-16 00:27:23,814 | INFO | DefaultShutdownStrategy.java 196 | Starting to graceful shutdown 2 routes (timeout 300 seconds)
+2016-11-16 00:27:23,819 | INFO | DefaultShutdownStrategy.java 669 | Route: route2 shutdown complete, was consuming from: Endpoint[direct://firstEnd]
+2016-11-16 00:27:23,819 | INFO | DefaultShutdownStrategy.java 669 | Route: route1 shutdown complete, was consuming from: Endpoint[direct://start]
+2016-11-16 00:27:23,819 | INFO | DefaultShutdownStrategy.java 260 | Graceful shutdown of 2 routes completed in 0 seconds
+2016-11-16 00:27:23,825 | INFO | DefaultCamelContext.java 3151 | Apache Camel 2.17.3 (CamelContext: camel-1) uptime 2.323 seconds
+2016-11-16 00:27:23,825 | INFO | DefaultCamelContext.java 3152 | Apache Camel 2.17.3 (CamelContext: camel-1) is shutdown in 0.010 seconds
+2016-11-16 10:37:00,199 | INFO | DefaultCamelContext.java 2800 | Apache Camel 2.17.3 (CamelContext: camel-1) is starting
+2016-11-16 10:37:00,213 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2016-11-16 10:37:00,710 | INFO | DefaultTypeConverter.java 56 | Loaded 185 type converters
+2016-11-16 10:37:00,748 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2016-11-16 10:37:01,082 | INFO | DefaultCamelContext.java 3039 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2016-11-16 10:37:01,161 | INFO | DefaultStreamCachingStrategy.java 314 | StreamCaching in use with spool directory: /tmp/camel/camel-tmp-be8c1b7b-4eee-4504-822d-0b2e248982bd and rules: [Spool > 128K body size]
+2016-11-16 10:37:01,297 | INFO | DefaultCamelContext.java 3570 | Route: route1 started and consuming from: Endpoint[direct://start]
+2016-11-16 10:37:01,301 | INFO | DefaultCamelContext.java 3570 | Route: route2 started and consuming from: Endpoint[direct://firstEnd]
+2016-11-16 10:37:01,302 | INFO | DefaultCamelContext.java 2840 | Total 2 routes, of which 2 are started.
+2016-11-16 10:37:01,303 | INFO | DefaultCamelContext.java 2841 | Apache Camel 2.17.3 (CamelContext: camel-1) started in 1.110 seconds
+2016-11-16 10:37:01,352 | INFO | CamelLogger.java 159 | refeived = A
+2016-11-16 10:37:01,367 | ERROR | CamelLogger.java 204 | Failed delivery for (MessageId: ID-DVLTN-RAJKUMAR-42370-1479272819896-0-1 on ExchangeId: ID-DVLTN-RAJKUMAR-42370-1479272819896-0-2). Exhausted after delivery attempt: 1 caught: org.apache.camel.RuntimeExchangeException: IllegalAccessException occurred invoking method: public boolean App.returnTrue() using arguments: [] on the exchange: Exchange[]
+
+Message History
+---------------------------------------------------------------------------------------------------------------------------------------
+RouteId              ProcessorId          Processor                                                                        Elapsed (ms)
+[route1            ] [route1            ] [direct://start                                                                ] [        33]
+[route1            ] [process1          ] [Processor@0x19d481b                                                           ] [         5]
+[route1            ] [log1              ] [log                                                                           ] [         1]
+[route1            ] [loop1             ] [loop[constant{6}]                                                             ] [        12]
+[route1            ] [choice1           ] [when[bean{App}]choice[]                                                       ] [         5]
+
+Stacktrace
+---------------------------------------------------------------------------------------------------------------------------------------
+org.apache.camel.RuntimeExchangeException: IllegalAccessException occurred invoking method: public boolean App.returnTrue() using arguments: [] on the exchange: Exchange[]
+	at org.apache.camel.component.bean.MethodInfo.invoke(MethodInfo.java:410)
+	at org.apache.camel.component.bean.MethodInfo$1.doProceed(MethodInfo.java:279)
+	at org.apache.camel.component.bean.MethodInfo$1.proceed(MethodInfo.java:252)
+	at org.apache.camel.component.bean.BeanProcessor.process(BeanProcessor.java:177)
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:109)
+	at org.apache.camel.component.bean.BeanProcessor.process(BeanProcessor.java:68)
+	at org.apache.camel.language.bean.BeanExpression$InvokeProcessor.process(BeanExpression.java:211)
+	at org.apache.camel.language.bean.BeanExpression.evaluate(BeanExpression.java:126)
+	at org.apache.camel.language.bean.BeanExpression.matches(BeanExpression.java:148)
+	at org.apache.camel.processor.FilterProcessor.matches(FilterProcessor.java:65)
+	at org.apache.camel.processor.ChoiceProcessor.process(ChoiceProcessor.java:93)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:468)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.LoopProcessor.process(LoopProcessor.java:128)
+	at org.apache.camel.processor.LoopProcessor.process(LoopProcessor.java:96)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:468)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:109)
+	at org.apache.camel.processor.UnitOfWorkProducer.process(UnitOfWorkProducer.java:68)
+	at org.apache.camel.impl.ProducerCache$2.doInProducer(ProducerCache.java:412)
+	at org.apache.camel.impl.ProducerCache$2.doInProducer(ProducerCache.java:380)
+	at org.apache.camel.impl.ProducerCache.doInProducer(ProducerCache.java:270)
+	at org.apache.camel.impl.ProducerCache.sendExchange(ProducerCache.java:380)
+	at org.apache.camel.impl.ProducerCache.send(ProducerCache.java:238)
+	at org.apache.camel.impl.DefaultProducerTemplate.send(DefaultProducerTemplate.java:128)
+	at org.apache.camel.impl.DefaultProducerTemplate.sendBody(DefaultProducerTemplate.java:132)
+	at org.apache.camel.impl.DefaultProducerTemplate.sendBody(DefaultProducerTemplate.java:149)
+	at org.apache.camel.impl.DefaultProducerTemplate.requestBody(DefaultProducerTemplate.java:301)
+	at App.main(App.java:62)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+Caused by: java.lang.IllegalAccessException: Class org.apache.camel.component.bean.MethodInfo can not access a member of class App with modifiers "public"
+	at sun.reflect.Reflection.ensureMemberAccess(Reflection.java:102)
+	at java.lang.reflect.AccessibleObject.slowCheckMemberAccess(AccessibleObject.java:296)
+	at java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:288)
+	at java.lang.reflect.Method.invoke(Method.java:491)
+	at org.apache.camel.component.bean.MethodInfo.invoke(MethodInfo.java:408)
+	... 42 more
+2016-11-16 10:38:31,978 | INFO | DefaultCamelContext.java 2800 | Apache Camel 2.17.3 (CamelContext: camel-1) is starting
+2016-11-16 10:38:31,984 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2016-11-16 10:38:32,346 | INFO | DefaultTypeConverter.java 56 | Loaded 185 type converters
+2016-11-16 10:38:32,419 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2016-11-16 10:38:32,831 | INFO | DefaultCamelContext.java 3039 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2016-11-16 10:38:32,860 | INFO | DefaultStreamCachingStrategy.java 314 | StreamCaching in use with spool directory: /tmp/camel/camel-tmp-00e7d4c0-a7bb-4156-9289-efd87d9760b3 and rules: [Spool > 128K body size]
+2016-11-16 10:38:32,998 | INFO | DefaultCamelContext.java 3570 | Route: route1 started and consuming from: Endpoint[direct://start]
+2016-11-16 10:38:33,000 | INFO | DefaultCamelContext.java 3570 | Route: route2 started and consuming from: Endpoint[direct://firstEnd]
+2016-11-16 10:38:33,001 | INFO | DefaultCamelContext.java 2840 | Total 2 routes, of which 2 are started.
+2016-11-16 10:38:33,003 | INFO | DefaultCamelContext.java 2841 | Apache Camel 2.17.3 (CamelContext: camel-1) started in 1.027 seconds
+2016-11-16 10:38:33,030 | INFO | CamelLogger.java 159 | refeived = A
+2016-11-16 10:38:33,041 | ERROR | CamelLogger.java 204 | Failed delivery for (MessageId: ID-DVLTN-RAJKUMAR-42166-1479272911706-0-1 on ExchangeId: ID-DVLTN-RAJKUMAR-42166-1479272911706-0-2). Exhausted after delivery attempt: 1 caught: org.apache.camel.RuntimeExchangeException: IllegalAccessException occurred invoking method: public boolean App.returnTrue() using arguments: [] on the exchange: Exchange[]
+
+Message History
+---------------------------------------------------------------------------------------------------------------------------------------
+RouteId              ProcessorId          Processor                                                                        Elapsed (ms)
+[route1            ] [route1            ] [direct://start                                                                ] [        21]
+[route1            ] [process1          ] [Processor@0x51f116b8                                                          ] [         4]
+[route1            ] [log1              ] [log                                                                           ] [         1]
+[route1            ] [loop1             ] [loop[constant{6}]                                                             ] [         8]
+[route1            ] [choice1           ] [when[bean{App}]choice[]                                                       ] [         4]
+
+Stacktrace
+---------------------------------------------------------------------------------------------------------------------------------------
+org.apache.camel.RuntimeExchangeException: IllegalAccessException occurred invoking method: public boolean App.returnTrue() using arguments: [] on the exchange: Exchange[]
+	at org.apache.camel.component.bean.MethodInfo.invoke(MethodInfo.java:410)
+	at org.apache.camel.component.bean.MethodInfo$1.doProceed(MethodInfo.java:279)
+	at org.apache.camel.component.bean.MethodInfo$1.proceed(MethodInfo.java:252)
+	at org.apache.camel.component.bean.BeanProcessor.process(BeanProcessor.java:177)
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:109)
+	at org.apache.camel.component.bean.BeanProcessor.process(BeanProcessor.java:68)
+	at org.apache.camel.language.bean.BeanExpression$InvokeProcessor.process(BeanExpression.java:211)
+	at org.apache.camel.language.bean.BeanExpression.evaluate(BeanExpression.java:126)
+	at org.apache.camel.language.bean.BeanExpression.matches(BeanExpression.java:148)
+	at org.apache.camel.processor.FilterProcessor.matches(FilterProcessor.java:65)
+	at org.apache.camel.processor.ChoiceProcessor.process(ChoiceProcessor.java:93)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:468)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.LoopProcessor.process(LoopProcessor.java:128)
+	at org.apache.camel.processor.LoopProcessor.process(LoopProcessor.java:96)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:468)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:109)
+	at org.apache.camel.processor.UnitOfWorkProducer.process(UnitOfWorkProducer.java:68)
+	at org.apache.camel.impl.ProducerCache$2.doInProducer(ProducerCache.java:412)
+	at org.apache.camel.impl.ProducerCache$2.doInProducer(ProducerCache.java:380)
+	at org.apache.camel.impl.ProducerCache.doInProducer(ProducerCache.java:270)
+	at org.apache.camel.impl.ProducerCache.sendExchange(ProducerCache.java:380)
+	at org.apache.camel.impl.ProducerCache.send(ProducerCache.java:238)
+	at org.apache.camel.impl.DefaultProducerTemplate.send(DefaultProducerTemplate.java:128)
+	at org.apache.camel.impl.DefaultProducerTemplate.sendBody(DefaultProducerTemplate.java:132)
+	at org.apache.camel.impl.DefaultProducerTemplate.sendBody(DefaultProducerTemplate.java:149)
+	at org.apache.camel.impl.DefaultProducerTemplate.requestBody(DefaultProducerTemplate.java:301)
+	at App.main(App.java:63)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+Caused by: java.lang.IllegalAccessException: Class org.apache.camel.component.bean.MethodInfo can not access a member of class App with modifiers "public"
+	at sun.reflect.Reflection.ensureMemberAccess(Reflection.java:102)
+	at java.lang.reflect.AccessibleObject.slowCheckMemberAccess(AccessibleObject.java:296)
+	at java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:288)
+	at java.lang.reflect.Method.invoke(Method.java:491)
+	at org.apache.camel.component.bean.MethodInfo.invoke(MethodInfo.java:408)
+	... 42 more
+2016-11-17 10:14:39,980 | INFO | DefaultCamelContext.java 2800 | Apache Camel 2.17.3 (CamelContext: camel-1) is starting
+2016-11-17 10:14:40,015 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2016-11-17 10:14:40,411 | INFO | DefaultTypeConverter.java 56 | Loaded 185 type converters
+2016-11-17 10:14:40,446 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2016-11-17 10:14:40,661 | INFO | DefaultCamelContext.java 3039 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2016-11-17 10:14:40,713 | INFO | DefaultStreamCachingStrategy.java 314 | StreamCaching in use with spool directory: /tmp/camel/camel-tmp-b4072f86-6982-43ed-8a0d-e856ac2edbba and rules: [Spool > 128K body size]
+2016-11-17 10:14:40,804 | INFO | DefaultCamelContext.java 3570 | Route: route1 started and consuming from: Endpoint[direct://start]
+2016-11-17 10:14:40,806 | INFO | DefaultCamelContext.java 3570 | Route: route2 started and consuming from: Endpoint[direct://firstEnd]
+2016-11-17 10:14:40,807 | INFO | DefaultCamelContext.java 2840 | Total 2 routes, of which 2 are started.
+2016-11-17 10:14:40,808 | INFO | DefaultCamelContext.java 2841 | Apache Camel 2.17.3 (CamelContext: camel-1) started in 0.830 seconds
+2016-11-17 10:14:40,834 | INFO | CamelLogger.java 159 | refeived = A
+2016-11-17 10:14:40,886 | ERROR | CamelLogger.java 204 | Failed delivery for (MessageId: ID-DVLTN-RAJKUMAR-49363-1479357871094-0-1 on ExchangeId: ID-DVLTN-RAJKUMAR-49363-1479357871094-0-2). Exhausted after delivery attempt: 1 caught: org.apache.camel.RuntimeExchangeException: IllegalAccessException occurred invoking method: public boolean App.returnTrue() using arguments: [] on the exchange: Exchange[]
+
+Message History
+---------------------------------------------------------------------------------------------------------------------------------------
+RouteId              ProcessorId          Processor                                                                        Elapsed (ms)
+[route1            ] [route1            ] [direct://start                                                                ] [        61]
+[route1            ] [process1          ] [Processor@0x5b0abc94                                                          ] [         4]
+[route1            ] [log1              ] [log                                                                           ] [         1]
+[route1            ] [loop1             ] [loop[simple{Simple: ${body.length} < 5}]                                      ] [        50]
+[route1            ] [choice1           ] [when[bean{App}]choice[]                                                       ] [         2]
+
+Stacktrace
+---------------------------------------------------------------------------------------------------------------------------------------
+org.apache.camel.RuntimeExchangeException: IllegalAccessException occurred invoking method: public boolean App.returnTrue() using arguments: [] on the exchange: Exchange[]
+	at org.apache.camel.component.bean.MethodInfo.invoke(MethodInfo.java:410)
+	at org.apache.camel.component.bean.MethodInfo$1.doProceed(MethodInfo.java:279)
+	at org.apache.camel.component.bean.MethodInfo$1.proceed(MethodInfo.java:252)
+	at org.apache.camel.component.bean.BeanProcessor.process(BeanProcessor.java:177)
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:109)
+	at org.apache.camel.component.bean.BeanProcessor.process(BeanProcessor.java:68)
+	at org.apache.camel.language.bean.BeanExpression$InvokeProcessor.process(BeanExpression.java:211)
+	at org.apache.camel.language.bean.BeanExpression.evaluate(BeanExpression.java:126)
+	at org.apache.camel.language.bean.BeanExpression.matches(BeanExpression.java:148)
+	at org.apache.camel.processor.FilterProcessor.matches(FilterProcessor.java:65)
+	at org.apache.camel.processor.ChoiceProcessor.process(ChoiceProcessor.java:93)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:468)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.LoopProcessor.process(LoopProcessor.java:128)
+	at org.apache.camel.processor.LoopProcessor.process(LoopProcessor.java:96)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:468)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:109)
+	at org.apache.camel.processor.UnitOfWorkProducer.process(UnitOfWorkProducer.java:68)
+	at org.apache.camel.impl.ProducerCache$2.doInProducer(ProducerCache.java:412)
+	at org.apache.camel.impl.ProducerCache$2.doInProducer(ProducerCache.java:380)
+	at org.apache.camel.impl.ProducerCache.doInProducer(ProducerCache.java:270)
+	at org.apache.camel.impl.ProducerCache.sendExchange(ProducerCache.java:380)
+	at org.apache.camel.impl.ProducerCache.send(ProducerCache.java:238)
+	at org.apache.camel.impl.DefaultProducerTemplate.send(DefaultProducerTemplate.java:128)
+	at org.apache.camel.impl.DefaultProducerTemplate.sendBody(DefaultProducerTemplate.java:132)
+	at org.apache.camel.impl.DefaultProducerTemplate.sendBody(DefaultProducerTemplate.java:149)
+	at org.apache.camel.impl.DefaultProducerTemplate.requestBody(DefaultProducerTemplate.java:301)
+	at App.main(App.java:63)
+Caused by: java.lang.IllegalAccessException: Class org.apache.camel.component.bean.MethodInfo can not access a member of class App with modifiers "public"
+	at sun.reflect.Reflection.ensureMemberAccess(Reflection.java:102)
+	at java.lang.reflect.AccessibleObject.slowCheckMemberAccess(AccessibleObject.java:296)
+	at java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:288)
+	at java.lang.reflect.Method.invoke(Method.java:491)
+	at org.apache.camel.component.bean.MethodInfo.invoke(MethodInfo.java:408)
+	... 37 more
